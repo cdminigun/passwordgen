@@ -1,5 +1,5 @@
 /****************************************************
-Homework assignment 5 - Written by Christopher Doege
+Written by Christopher Doege
 
 Prupose:
   A program which prints all possible permutations of letters
@@ -14,28 +14,29 @@ Output:
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <time.h>
+#include <time.h> //Used to track generation time
 #include "passwordgen.h"
 
 
 
-int main(int argc, char *argv[])
+int main(int argc, char *argv[]) //Taking user input through *argv[]
 {
-  int i,x;
+  int i;
+  int strlenArgv; // Used to create a new string that is null terminated.
   clock_t begin, end;
   double time_spent;
-  begin = clock();
-  //makes a null terminated string from argv and throws it into listMnemeronics
-  for(i=1;i<argc;i++)
+  begin = clock(); // Sets the start time
+  //makes a null terminated string from argv and throws it into listPasswords
+  for(i=1;i<argc;i++) // Loop through all elemens in argv
   {
-    x = (int)strlen(argv[i]);
-    char temp[x];
+    strlenArgv = (int)strlen(argv[i])+1; // Take the size of the current argv and add 1
+    char nullTerminatedArgv[strlenArgv];
     strcpy(temp,argv[i]);
-    temp[x] = '\0';
-    listPasswords(temp);
+    nullTerminatedArgv[strlenArgv-1] = '\0';
+    listPasswords(nullTerminatedArgv);
   }
-  end = clock();
-  time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+  end = clock(); //Sets the end time
+  time_spent = (double)(end - begin) / CLOCKS_PER_SEC; //Calculates the total time spent
   printf("Time: %lf \n", time_spent);
   return 0;
 }
