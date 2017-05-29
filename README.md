@@ -1,10 +1,10 @@
 # passwordgen
 A small, probably inefficient, password generator. 
 
-#Description:
+## Description:
 This program will generate all permutations of most plausible passwords. Input is taken in via argv / argc. 
 
-#Useage:
+## Useage:
 Each individual digit entered counts for one character. Each digit also correlates to a string of characters.
 I also recommend taking output to a file to save the generated permutations. 
 <ul>
@@ -14,7 +14,7 @@ I also recommend taking output to a file to save the generated permutations.
 <li>5 - "!@#..." all special characters</li>
 <li>6 - "abcABC!@#"  Every character list combined, note this is dangerous and will lead to massive file sizes / long times for outputs. </li>
 </ul>
-#Examples:
+## Examples:
 <p>./passwordgen 22222</p>
 <p>//Generates all permutations of "abc.." and outputs them. </p>
 <p>./passwordgen 666666 > example.txt</p>
