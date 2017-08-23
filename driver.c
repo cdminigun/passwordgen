@@ -31,8 +31,9 @@ int main(int argc, char *argv[]) //Taking user input through *argv[]
   {
     strlenArgv = (int)strlen(argv[i])+1; // Take the size of the current argv and add 1
     char nullTerminatedArgv[strlenArgv];
-    strcpy(temp,argv[i]);
+    strncpy(nullTerminatedArgv, argv[i], strlenArgv);
     nullTerminatedArgv[strlenArgv-1] = '\0';
+    printf("String : %s %d\n", nullTerminatedArgv, strlenArgv);
     listPasswords(nullTerminatedArgv);
   }
   end = clock(); //Sets the end time

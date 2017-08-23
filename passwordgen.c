@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include "passwordgen.h"
@@ -57,6 +58,7 @@ void listPasswords(char *numbers) { //Wrapper and error checking for the control
 int checkIllegalChars(char numbers[], int x)
 {
   int i;
+  printf("x: %d\n", x);
   for(i=0;i<x;i++)
   {
     if(numbers[i] == '0' || numbers[i]== '1')
@@ -64,7 +66,7 @@ int checkIllegalChars(char numbers[], int x)
       printf("\tNone, %s contains a digit 1 || 0.\n", numbers); // Exit characters
       return 1;
     }
-    if(!isdigit(numbers[i]) || (int)numbers[i]>6 || (int)numbers[i]<0) //Outside of datset and boundry cases
+    if(!isdigit(numbers[i]) || (numbers[i] - '0')>6 || (numbers[i] - '0')<0) //Outside of datset and boundry cases
     {
       printf("\tNone, %s contains at least one alphabetic character.\n", numbers);
       return 1;
